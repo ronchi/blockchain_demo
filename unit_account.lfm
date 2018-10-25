@@ -1,0 +1,819 @@
+object Form_Account: TForm_Account
+  Left = 305
+  Height = 546
+  Top = 89
+  Width = 463
+  Caption = 'Account Settings'
+  ClientHeight = 546
+  ClientWidth = 463
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.8.4.0'
+  object PanelSaveCancelButtons: TPanel
+    Left = 0
+    Height = 45
+    Hint = 'Cancel changes and close this window.'
+    Top = 501
+    Width = 463
+    Align = alBottom
+    ClientHeight = 45
+    ClientWidth = 463
+    TabOrder = 12
+    object ButtonSave: TButton
+      Left = 168
+      Height = 33
+      Hint = 'Save changes and close this window.'
+      Top = 6
+      Width = 125
+      Caption = '&Save Data'
+      OnClick = ButtonSaveClick
+      TabOrder = 0
+    end
+    object ButtonCancel: TButton
+      Left = 320
+      Height = 33
+      Top = 6
+      Width = 125
+      Caption = '&Cancel'
+      OnClick = ButtonCancelClick
+      TabOrder = 1
+    end
+    object ButtonSave1: TButton
+      Left = 16
+      Height = 33
+      Hint = 'Commit the Credt Card Transaction'
+      Top = 6
+      Width = 125
+      Caption = 'Commit $$$'
+      OnClick = ButtonSaveClick
+      TabOrder = 2
+    end
+  end
+  object PanelPeerToPeerAddress: TPanel
+    Left = 0
+    Height = 35
+    Top = 0
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 0
+    object Panel2: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label1: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 132
+        Caption = ' &Peer-to-Peer Addr.:'
+        FocusControl = EditPeerToPeerNumber
+        ParentColor = False
+      end
+    end
+    object Panel3: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditPeerToPeerNumber: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelSecurityCode: TPanel
+    Left = 0
+    Height = 35
+    Top = 350
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 10
+    object Panel4: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label2: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 99
+        Caption = ' Security C&ode:'
+        FocusControl = EditSecurityCode
+        ParentColor = False
+      end
+    end
+    object Panel5: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditSecurityCode: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clSilver
+        EchoMode = emPassword
+        MaxLength = 3
+        PasswordChar = '*'
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelExpirationDate: TPanel
+    Left = 0
+    Height = 35
+    Top = 315
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 9
+    object Panel6: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label3: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 112
+        Caption = ' E&xpiration Date:'
+        ParentColor = False
+      end
+    end
+    object Panel7: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object DateEditExpirationDate: TDateEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+        DateOrder = doNone
+        DateFormat = 'MM-YYYY'
+        ButtonWidth = 23
+        Align = alClient
+        Color = clSilver
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelCardType: TPanel
+    Left = 0
+    Height = 35
+    Top = 280
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 8
+    object Panel8: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label4: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 74
+        Caption = ' Card T&ype:'
+        ParentColor = False
+      end
+    end
+    object Panel9: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object ComboBoxCardType: TComboBox
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        ItemHeight = 0
+        ItemIndex = 3
+        Items.Strings = (
+          'American Express'
+          'Discover'
+          'MasterCard'
+          'Visa'
+        )
+        TabOrder = 0
+        Text = 'Visa'
+      end
+    end
+  end
+  object PanelCreditCardNumber: TPanel
+    Left = 0
+    Height = 35
+    Top = 245
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 7
+    object Panel10: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label5: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 138
+        Caption = ' C&redit Card Number'
+        FocusControl = EditCreditCardNumber
+        ParentColor = False
+      end
+    end
+    object Panel11: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditCreditCardNumber: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelZipCode: TPanel
+    Left = 0
+    Height = 35
+    Top = 210
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 6
+    object Panel12: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label6: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 70
+        Caption = ' &Zip Code::'
+        FocusControl = EditZipCode
+        ParentColor = False
+      end
+    end
+    object Panel13: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditZipCode: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clSilver
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelState: TPanel
+    Left = 0
+    Height = 35
+    Top = 175
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 5
+    object Panel14: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label7: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 43
+        Caption = ' S&tate:'
+        ParentColor = False
+      end
+    end
+    object Panel15: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object ComboBoxState: TComboBox
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clSilver
+        ItemHeight = 0
+        ItemIndex = 42
+        Items.Strings = (
+          'Alabama'
+          'Alaska'
+          'Arizona'
+          'Arkansas'
+          'California'
+          'Colorado'
+          'Connecticut'
+          'Delaware'
+          'Florida'
+          'Georgia'
+          'Hawaii'
+          'Idaho'
+          'Illinois'
+          'Indiana'
+          'Iowa'
+          'Kansas'
+          'Kentucky'
+          'Louisiana'
+          'Maine'
+          'Maryland'
+          'Massachusetts'
+          'Michigan'
+          'Minnesota'
+          'Mississippi'
+          'Missouri'
+          'Montana'
+          'Nebraska'
+          'Nevada'
+          'New Hampshire'
+          'New Jersey'
+          'New Mexico'
+          'New York'
+          'North Carolina'
+          'North Dakota'
+          'Ohio'
+          'Oklahoma'
+          'Oregon'
+          'Pennsylvania'
+          'Rhode Island'
+          'South Carolina'
+          'South Dakota'
+          'Tennessee'
+          'Texas'
+          'Utah'
+          'Vermont'
+          'Virginia'
+          'Washington'
+          'West Virginia'
+          'Wisconsin'
+          'Wyoming'
+        )
+        TabOrder = 0
+        Text = 'Texas'
+      end
+    end
+  end
+  object PanelCity: TPanel
+    Left = 0
+    Height = 35
+    Top = 140
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 4
+    object Panel16: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label8: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 33
+        Caption = ' &Cit&y:'
+        FocusControl = EditCity
+        ParentColor = False
+      end
+    end
+    object Panel17: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditCity: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clSilver
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelStreetAddress: TPanel
+    Left = 0
+    Height = 35
+    Top = 105
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 3
+    object Panel18: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label9: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 108
+        Caption = ' &Street Address:'
+        FocusControl = EditStreetAddress
+        ParentColor = False
+      end
+    end
+    object Panel19: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditStreetAddress: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clSilver
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelYourFullName: TPanel
+    Left = 0
+    Height = 35
+    Top = 70
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 2
+    object Panel20: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label10: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 108
+        Caption = ' Your Full &Name:'
+        FocusControl = EditYourFullName
+        ParentColor = False
+      end
+    end
+    object Panel21: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditYourFullName: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clSilver
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelYourAlias: TPanel
+    Left = 0
+    Height = 35
+    Top = 35
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    TabOrder = 1
+    object Panel22: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label11: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 4
+        Height = 17
+        Top = 8
+        Width = 78
+        Caption = ' Your &Alias::'
+        FocusControl = EditYourAlias
+        ParentColor = False
+      end
+    end
+    object Panel23: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditYourAlias: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clLime
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelAmount: TPanel
+    Left = 0
+    Height = 35
+    Top = 385
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    Color = clCream
+    ParentColor = False
+    TabOrder = 11
+    object Panel24: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label12: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 6
+        Height = 17
+        Top = 8
+        Width = 100
+        Caption = 'A&mount:  (US$)'
+        FocusControl = FloatSpinEditAmount
+        ParentColor = False
+      end
+    end
+    object Panel25: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object FloatSpinEditAmount: TFloatSpinEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clSilver
+        Increment = 1
+        MaxValue = 1000000000000
+        MinValue = 1
+        TabOrder = 0
+        Value = 100
+      end
+    end
+  end
+  object PanelPublicKey: TPanel
+    Left = 0
+    Height = 35
+    Top = 420
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    Color = clCream
+    ParentColor = False
+    TabOrder = 13
+    OnExit = PanelPublicKeyExit
+    object Panel26: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label13: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 6
+        Height = 17
+        Top = 8
+        Width = 72
+        Caption = 'Public Key:'
+        FocusControl = EditPublicKey
+        ParentColor = False
+      end
+    end
+    object Panel27: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditPublicKey: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clLime
+        TabOrder = 0
+      end
+    end
+  end
+  object PanelPrivateKey: TPanel
+    Left = 0
+    Height = 35
+    Top = 455
+    Width = 463
+    Align = alTop
+    ClientHeight = 35
+    ClientWidth = 463
+    Color = clCream
+    ParentColor = False
+    TabOrder = 14
+    object Panel28: TPanel
+      Left = 1
+      Height = 33
+      Top = 1
+      Width = 150
+      Align = alLeft
+      ClientHeight = 33
+      ClientWidth = 150
+      TabOrder = 0
+      object Label14: TLabel
+        AnchorSideTop.Side = asrCenter
+        Left = 6
+        Height = 17
+        Top = 8
+        Width = 79
+        Caption = 'Private Key:'
+        FocusControl = EditPrivateKey
+        ParentColor = False
+      end
+    end
+    object Panel29: TPanel
+      Left = 151
+      Height = 33
+      Top = 1
+      Width = 311
+      Align = alClient
+      ClientHeight = 33
+      ClientWidth = 311
+      TabOrder = 1
+      object EditPrivateKey: TEdit
+        Left = 1
+        Height = 31
+        Top = 1
+        Width = 309
+        Align = alClient
+        Color = clRed
+        EchoMode = emPassword
+        PasswordChar = '*'
+        TabOrder = 0
+      end
+    end
+  end
+end
